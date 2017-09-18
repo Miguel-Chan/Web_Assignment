@@ -7,7 +7,7 @@ body {
     margin: 0;
     text-align: left;
 }
-.header {
+header {
     background-image: url("img/bannerbackground.png");
     background-repeat: repeat-x;
     height: 50px;
