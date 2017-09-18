@@ -45,7 +45,7 @@ footer {
     width: 550px;
 }
 #preview {
-    height: auto;
+    height: 412px;
 }
 #description {
     float: left;
@@ -53,6 +53,9 @@ footer {
     padding: 10px;
     font-size: 8pt;
     font-family: Arial, sans-serif;
+}
+#description dl {
+    margin: 0;
 }
 #description dt {
     font-weight: bold;
