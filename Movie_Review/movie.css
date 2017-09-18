@@ -93,11 +93,10 @@ footer {
     background-color: #E1D697;
     border: 2px grey solid;
     padding: 8px;
-}
-.message .comment p {
-
+    min-height: 25px;
 }
 .message .comment > img, .message .user > img {
     float: left;
     padding-right: 5px;
+    padding-bottom: 1px;
 }
