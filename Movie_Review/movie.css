@@ -72,7 +72,7 @@ footer {
      font-size: 48pt;
  }
 #mark img {
-    vertical-align: top;
+    vertical-align: bottom;
 }
 #mark span {
     color: white;
