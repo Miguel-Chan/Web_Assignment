@@ -98,6 +98,9 @@ footer {
     padding: 8px;
     min-height: 25px;
 }
+.message .user .publisher {
+    font-style: italic;
+}
 .message .comment > img, .message .user > img {
     float: left;
     padding-right: 5px;
