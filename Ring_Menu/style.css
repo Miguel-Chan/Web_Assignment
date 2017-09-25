@@ -33,7 +33,7 @@ html, body {
     height: 30px;
     bottom: 135px;
     border-radius: 50%;
-    transition: 1s;
+    transition: 0.6s;
 }
 #button #info-bar .page {
     color: white;
@@ -57,7 +57,7 @@ html, body {
 }
 ul {
     list-style: none;
-    opacity: 0.6;
+    opacity: 0.1;
     width: 0;
     height: 0;
 }
@@ -79,7 +79,7 @@ ul > * {
     height: 30px;
     background-repeat: no-repeat;
     background-position: center;
-    transition: 1s;
+    transition: 0.6s;
 }
 .button {
     width: 30px;
@@ -96,22 +96,43 @@ ul > * {
 .mask {
     position: absolute;
     background-image: url("assets/images/mask.png");
+    bottom: 78%;
+    left: -33%;
 }
 .history {
     position: absolute;
     background-image: url("assets/images/history.png");
+    bottom: 54%;
+    left: -39%;
 }
 .message {
     position: absolute;
     background-image: url("assets/images/message.png");
+    bottom: 32%;
+    left: -28%;
+}
+#button:hover .message .unread {
+    position: absolute;
+    text-align: center;
+    background-color: red;
+    border-radius: 50%;
+    width: 60%;
+    height: 60%;
+    color: white;
+    top: -25%;
+    right: -25%;
 }
 .setting {
     position: absolute;
     background-image: url("assets/images/setting.png");
+    bottom: 23%;
+    left: -5%;
 }
 .sign {
     position: absolute;
     background-image: url("assets/images/signout.png");
+    left: 18%;
+    bottom: 31%;
 }
 #button:hover ul {
     display: inline-block;
@@ -134,6 +155,13 @@ ul > * {
 #button:hover #info-bar ul > * {
     position: static;
 }
+#button:hover #control-ring {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 #button:hover .apb {
     background-color: rgba(48, 63, 159, 1);
     background-image: url("assets/images/atplus_green.png");
@@ -147,40 +175,9 @@ ul > * {
 #button:hover #control-ring-container {
     visibility: visible;
     width: 100%;
-    bottom: 7%;
+    bottom: 0;
     height: 60%;
-    left: -10%;
+    left: 40%;
     position: absolute;
     border-radius: 50%;
-}
-#button:hover .mask {
-    bottom: 70%;
-    left: 17%;
-}
-#button:hover .history {
-    bottom: 46%;
-    left: 11%;
-}
-#button:hover .message {
-    bottom: 24%;
-    left: 22%;
-}
-#button:hover .message .unread {
-    position: absolute;
-    text-align: center;
-    background-color: red;
-    border-radius: 50%;
-    width: 60%;
-    height: 60%;
-    color: white;
-    top: -25%;
-    right: -25%;
-}
-#button:hover .setting {
-    bottom: 15%;
-    left: 45%;
-}
-#button:hover .sign {
-    left: 68%;
-    bottom: 23%;
 }
