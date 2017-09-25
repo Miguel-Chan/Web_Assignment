@@ -22,9 +22,9 @@ html, body {
     width: 30px;
 }
 #button:hover {
-    margin: 115px 65px;
-    height: 70px;
-    width: 70px;
+    margin: 65px 20px;
+    height: 170px;
+    width: 160px;
 }
 #info-bar, #control-ring-container {
     visibility: hidden;
