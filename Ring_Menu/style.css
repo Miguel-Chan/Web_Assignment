@@ -33,9 +33,10 @@ html, body {
     height: 30px;
     bottom: 135px;
     border-radius: 50%;
+    -webkit-transition: all 0.6s;
     transition: all 0.6s;
 }
-#button #info-bar .page {
+#button #info-bar li {
     color: white;
 }
 #button #info-bar .comment{
@@ -43,14 +44,13 @@ html, body {
 }
 #info-bar ul {
     padding: 0;
-    opacity: 0;
 }
 #info-bar img {
     padding-right: 5px;
 }
-#button #info-bar .mine {
+#button:hover #info-bar .mine {
     color: #079E6E;
-    display: inline;
+    display: inline-block;
 }
 #button #info-bar .mine > img{
     vertical-align: middle;
@@ -66,7 +66,6 @@ ul > * {
     bottom: 0;
     left: 0;
 }
-
 .apb {
     text-align: center;
     margin: 0 auto;
@@ -80,6 +79,7 @@ ul > * {
     height: 30px;
     background-repeat: no-repeat;
     background-position: center;
+    -webkit-transition: all 0.6s;
     transition: all 0.6s;
 }
 .button {
@@ -147,18 +147,41 @@ ul > * {
 }
 #button:hover #info-bar {
     bottom: 58%;
-    left: 17%;
+    left: 30%;
     position: absolute;
     text-align: center;
     visibility: visible;
-    display: block;
     border-radius: 50%;
     width: 130px;
     height: 130px;
     background-color: #6D6D6D;
 }
+#button:hover .info {
+    height: 100%;
+    width: 100%;
+}
+#button:hover #info-bar ul {
+    height: 80%;
+    width: 70%;
+}
+#button:hover #info-bar ul .user {
+    bottom: 70%;
+    left: 36%;
+}
+#button:hover #info-bar ul .comment {
+    bottom: 33%;
+    left: 31%;
+}
+#button:hover #info-bar ul .posted {
+    bottom: 12%;
+    left: 22%;
+}
+#button:hover #info-bar ul .like {
+    bottom: 12%;
+    left: 54%;
+}
 #button:hover #info-bar ul > * {
-    position: static;
+    position: absolute;
     width: auto;
     height: auto;
 }
