@@ -59,6 +59,7 @@ ul {
     list-style: none;
     opacity: 0.1;
     width: 0;
+    transition: opacity 0.5s;
     height: 0;
 }
 ul > * {
