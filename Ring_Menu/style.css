@@ -36,6 +36,9 @@ html, body {
     -webkit-transition: all 0.6s;
     transition: all 0.6s;
 }
+#button #info-bar {
+    left: 40%;
+}
 #button #info-bar li {
     color: white;
 }
@@ -147,8 +150,8 @@ ul > * {
     opacity: 1;
 }
 #button:hover #info-bar {
-    bottom: 58%;
-    left: 30%;
+    bottom: 60%;
+    left: 15%;
     position: absolute;
     text-align: center;
     visibility: visible;
