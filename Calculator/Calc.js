@@ -8,6 +8,13 @@ function calculate()
         alert("未输入表达式！");
         return;
     }
+    for(var ele of formula.value) {
+        if(!((ele >= '0' && ele <= '9') || ele === '*' || ele === '/' ||
+            ele === '(' || ele === ')' || ele === '+' || ele === '-' || ele === '.')) {
+            alert("表达式输入有误，请输入正确格式的表达式！");
+            return;
+        }
+    }
     try {
         alert("运算结果：" + eval(formula.value));
     }
