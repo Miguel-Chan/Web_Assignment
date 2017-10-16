@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>Calculator</title>
     <link type="text/css" rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="Calc.js"></script>
 </head>
 <body>
     <header>
         <h1>简单计算器</h1>
     </header>
     <div id="calculator-container">
-        <form onsubmit="return false">
+        <form onsubmit="return false" id="calculator">
             <label><input type="text" name="formula" id="formula"></label>
+            <p id="result">      </p>
             <input type="button" class="number" value="7">
             <input type="button" class="number" value="8">
             <input type="button" class="number" value="9">
@@ -34,6 +36,5 @@
             <input type="submit" id="calculate" value="=">
         </form>
     </div>
-    <script type="text/javascript" src="Calc.js"></script>
 </body>
 </html>
