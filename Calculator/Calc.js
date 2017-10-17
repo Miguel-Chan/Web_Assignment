@@ -3,7 +3,8 @@
  */
 'use strict';
 
-function addClickAction(target, action) {
+function addClickAction(target, action)
+{
     try {
         target.addEventListener("click", action);
     }
@@ -20,16 +21,15 @@ function calculate()
         showing = true;
         return;
     }
-    for(let ele of formula.value) {
-        if(!((ele >= '0' && ele <= '9') || ele === '*' || ele === '/' ||
-                ele === '(' || ele === ')' || ele === '+' || ele === '-' || ele === '.')) {
-            alert("表达式输入有误，请输入正确格式的表达式！");
-            msg.innerText = "表达式输入有误，请输入正确格式的表达式！";
-            showing = true;
-            return;
-        }
-    }
+
     try {
+        for(let i = 0; i < formula.value.length; i++) {
+            if(!(formula.value[i] >= '(' && formula.value[i] <= '9') ||
+                formula.value[i] === ',' ||
+                (i < formula.value.length-1 && formula.value[i] === '/' && formula.value[i+1] === '/')) {
+                throw new Error();
+            }
+        }
         msg.innerText = "运算结果：" + eval(formula.value);
         showing = true;
     }
@@ -76,7 +76,8 @@ function backspace()
 var msg;
 var showing;
 
-window.onload = function () {
+window.onload = function ()
+{
     let numbers = document.getElementsByClassName("number");
     let signs = document.getElementsByClassName("sign");
     msg = document.getElementById("result");
