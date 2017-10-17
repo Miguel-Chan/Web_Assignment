@@ -23,6 +23,7 @@ function calculate()
     for(let ele of formula.value) {
         if(!((ele >= '0' && ele <= '9') || ele === '*' || ele === '/' ||
                 ele === '(' || ele === ')' || ele === '+' || ele === '-' || ele === '.')) {
+            alert("表达式输入有误，请输入正确格式的表达式！");
             msg.innerText = "表达式输入有误，请输入正确格式的表达式！";
             showing = true;
             return;
@@ -33,6 +34,7 @@ function calculate()
         showing = true;
     }
     catch (error) {
+        alert("表达式出错，请检查后重试");
         msg.innerText = "表达式出错，请检查后重试";
         showing = true;
     }
