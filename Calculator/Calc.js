@@ -30,7 +30,13 @@ function calculate()
                 throw new Error();
             }
         }
-        msg.innerText = "运算结果：" + eval(formula.value);
+        let calculate_result = eval(formula.value);
+        if(calculate_result === Infinity || calculate_result === -Infinity || isNaN(calculate_result)) {
+            alert("表达式存在数值错误，请检查后重试");
+            msg.innerText = "表达式存在数值错误，请检查后重试";
+        }
+        else
+            msg.innerText = "运算结果：" + calculate_result;
         showing = true;
     }
     catch (error) {
