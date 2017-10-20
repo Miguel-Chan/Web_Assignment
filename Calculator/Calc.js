@@ -26,7 +26,8 @@ function calculate()
         for(let i = 0; i < formula.value.length; i++) {
             if(!(formula.value[i] >= '(' && formula.value[i] <= '9') ||
                 formula.value[i] === ',' ||
-                (i < formula.value.length-1 && formula.value[i] === '/' && formula.value[i+1] === '/')) {
+                (i < formula.value.length-1 && formula.value[i] === '/'
+                    && (formula.value[i+1] === '/' || formula.value[i+1] === '*'))) {
                 throw new Error();
             }
         }
