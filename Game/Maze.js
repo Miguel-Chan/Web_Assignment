@@ -101,51 +101,53 @@ function clearMessage() {
     context.clearRect(0, 0, 500, 30);
 }
 
+function mouseHandler(e) {
+    e = e || window.event;
+    let x = e.pageX || (e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft));
+    let y = e.pageY || (e.clientY + (document.documentElement.scrollTop || document.body.scrollTop));
+    x -= drawing.getBoundingClientRect().x;
+    y -= drawing.getBoundingClientRect().y;
+    finish = false;
+    if(isInUpArea(x, y)) {
+        if (!hasFail) {
+            printUp("#ED2063");
+            showMessage("Oops! You touched the wall! Try again!");
+            hasFail = true;
+        }
+        else showMessage("Now go to the start point and start playing!")
+    }
+    else if(isInDownArea(x, y)) {
+        if (!hasFail) {
+            printDown("#ED2063");
+            showMessage("Oops! You touched the wall! Try again!");
+            hasFail = true;
+        }
+        else showMessage("Now go to the start point and start playing!")
+    }
+    else {
+        printUp("#EDEDED");
+        printDown("#EDEDED");
+        if (hasFail) clearMessage();
+        if (isOnStartPoint(x, y)) {
+            showMessage("You are off to go!");
+            hasFail = false;
+        }
+        else if (isOnEndPoint(x, y)) {
+            finish = true;
+            if (hasFail) {
+                showMessage("Please don't cheat. Go back and restart! ");
+            }
+            else {
+                showMessage("Congrats! You have finished the maze! ");
+            }
+        }
+    }
+}
+
 window.onload = function () {
     drawing = document.getElementById("maze");
     initialize();
-    drawing.addEventListener("mousemove", function (e) {
-        e = e || window.event;
-        let x = e.pageX || (e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft));
-        let y = e.pageY || (e.clientY + (document.documentElement.scrollTop || document.body.scrollTop));
-        x -= drawing.getBoundingClientRect().x;
-        y -= drawing.getBoundingClientRect().y;
-        finish = false;
-        if(isInUpArea(x, y)) {
-            if (!hasFail) {
-                printUp("#ED2063");
-                showMessage("Oops! You touched the wall! Try again!");
-                hasFail = true;
-            }
-            else showMessage("Now go to the start point and start playing!")
-        }
-        else if(isInDownArea(x, y)) {
-            if (!hasFail) {
-                printDown("#ED2063");
-                showMessage("Oops! You touched the wall! Try again!");
-                hasFail = true;
-            }
-            else showMessage("Now go to the start point and start playing!")
-        }
-        else {
-            printUp("#EDEDED");
-            printDown("#EDEDED");
-            if (hasFail) clearMessage();
-            if (isOnStartPoint(x, y)) {
-                showMessage("You are off to go!");
-                hasFail = false;
-            }
-            else if (isOnEndPoint(x, y)) {
-                finish = true;
-                if (hasFail) {
-                    showMessage("Please don't cheat. Go back and restart! ");
-                }
-                else {
-                    showMessage("Congrats! You have finish the maze! ");
-                }
-            }
-        }
-    });
+    drawing.addEventListener("mousemove", mouseHandler);
     drawing.addEventListener("mouseout", function () {
         if(!finish) clearMessage();
         hasFail = true;
