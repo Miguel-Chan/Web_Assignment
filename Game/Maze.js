@@ -105,8 +105,8 @@ function mouseHandler(e) {
     e = e || window.event;
     let x = e.pageX || (e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft));
     let y = e.pageY || (e.clientY + (document.documentElement.scrollTop || document.body.scrollTop));
-    x -= drawing.getBoundingClientRect().x;
-    y -= drawing.getBoundingClientRect().y;
+    x -= drawing.getBoundingClientRect().x || drawing.getBoundingClientRect().left;
+    y -= drawing.getBoundingClientRect().y || drawing.getBoundingClientRect().top;
     finish = false;
     if(isInUpArea(x, y)) {
         if (!hasFail) {
