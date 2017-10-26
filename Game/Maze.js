@@ -12,27 +12,27 @@ let hasFail = true;
 function initialize() {
     if (drawing.getContext) {
         context = drawing.getContext("2d");
-        drawing.width = 500;
+        drawing.width = 510;
         drawing.height = 370;
         printUp("#EDEDED");
         printDown("#EDEDED");
         context.beginPath();
         context.fillStyle = "#83FF79";
-        context.rect(0, 245, 40, 40);
+        context.rect(5, 245, 40, 40);
         context.closePath();
         context.fill();
         context.stroke();
         context.beginPath();
         context.fillStyle = "#807BFC";
-        context.rect(460, 245, 40, 40);
+        context.rect(465, 245, 40, 40);
         context.closePath();
         context.fill();
         context.stroke();
         context.fillStyle = "#000000";
         context.font = "bolder 38px Arial";
         context.textAlign = "center";
-        context.fillText("S", 20, 278);
-        context.fillText("E", 480, 278)
+        context.fillText("S", 25, 278);
+        context.fillText("E", 485, 278)
     }
     else alert("Your browser does not support canvas! Please use another browser and try again!");
 }
@@ -41,14 +41,14 @@ function printUp(color) {
     context.fillStyle = color;
     context.strokeStyle = "#000000";
     context.beginPath();
-    context.moveTo(0, 60);
-    context.lineTo(500, 60);
-    context.lineTo(500, 240);
-    context.lineTo(395, 240);
-    context.lineTo(395, 120);
-    context.lineTo(105, 120);
-    context.lineTo(105, 240);
-    context.lineTo(0, 240);
+    context.moveTo(5, 60);
+    context.lineTo(505, 60);
+    context.lineTo(505, 240);
+    context.lineTo(400, 240);
+    context.lineTo(400, 120);
+    context.lineTo(110, 120);
+    context.lineTo(110, 240);
+    context.lineTo(5, 240);
     context.closePath();
     context.fill();
     context.stroke();
@@ -56,14 +56,14 @@ function printUp(color) {
 function printDown(color) {
     context.fillStyle = color;
     context.beginPath();
-    context.moveTo(0, 290);
-    context.lineTo(155, 290);
-    context.lineTo(155, 170);
-    context.lineTo(345, 170);
-    context.lineTo(345, 290);
-    context.lineTo(500, 290);
-    context.lineTo(500, 360);
-    context.lineTo(0, 360);
+    context.moveTo(5, 290);
+    context.lineTo(160, 290);
+    context.lineTo(160, 170);
+    context.lineTo(350, 170);
+    context.lineTo(350, 290);
+    context.lineTo(505, 290);
+    context.lineTo(505, 360);
+    context.lineTo(5, 360);
     context.closePath();
     context.fill();
     context.stroke();
@@ -72,33 +72,33 @@ function printDown(color) {
 function isInUpArea(x, y) {
     return ((y >= 60 && y <= 120) ||
         ((y > 120 && y <= 240) &&
-        ((x >= 0 && x <= 105) ||
-        (x >= 395 && x < 500))));
+        ((x >= 5 && x <= 110) ||
+        (x >= 400 && x < 505))));
 }
 
 function isInDownArea(x, y) {
     return ((y >= 290 && y <= 360) ||
         ((y < 290 && y >= 170) &&
-        (x >= 155 && x <= 345)));
+        (x >= 160 && x <= 350)));
 }
 
 function showMessage(text) {
     clearMessage();
     context.font = "bold 20px Arial";
     context.fillStyle = "#000000";
-    context.fillText(text, 250, 20);
+    context.fillText(text, 255, 20);
 }
 
 function isOnStartPoint(x, y) {
-    return x >= 0 && x <= 40 && y >= 245 && y <= 285;
+    return x >= 5 && x <= 45 && y >= 245 && y <= 285;
 }
 
 function isOnEndPoint(x, y) {
-    return x >= 460 && y >= 245 && y <= 285;
+    return x >= 465 && y >= 245 && y <= 285;
 }
 
 function clearMessage() {
-    context.clearRect(0, 0, 500, 30);
+    context.clearRect(5, 0, 500, 30);
 }
 
 function mouseHandler(e) {
