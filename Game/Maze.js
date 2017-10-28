@@ -3,10 +3,12 @@
  */
 'use strict';
 
-let drawing;
-let context;
-let finish = false;
-let hasFail = true;
+var drawing;
+var context;
+var finish = false;
+var hasFailed = true;
+var isIn = false;
+
 
 
 function initialize() {
@@ -109,32 +111,37 @@ function mouseHandler(e) {
     y -= drawing.getBoundingClientRect().y || drawing.getBoundingClientRect().top;
     finish = false;
     if(isInUpArea(x, y)) {
-        if (!hasFail) {
-            printUp("#ED2063");
-            showMessage("Oops! You touched the wall! Try again!");
-            hasFail = true;
+        if (isIn) {
+            if (!hasFailed) {
+                printUp("#ED2063");
+                showMessage("Oops! You touched the wall! Try again!");
+                hasFailed = true;
+            }
         }
         else showMessage("Now go to the start point and start playing!")
     }
     else if(isInDownArea(x, y)) {
-        if (!hasFail) {
-            printDown("#ED2063");
-            showMessage("Oops! You touched the wall! Try again!");
-            hasFail = true;
+        if (isIn) {
+            if(!hasFailed) {
+                printDown("#ED2063");
+                showMessage("Oops! You touched the wall! Try again!");
+                hasFailed = true;
+            }
         }
         else showMessage("Now go to the start point and start playing!")
     }
     else {
         printUp("#EDEDED");
         printDown("#EDEDED");
-        if (hasFail) clearMessage();
+        if (hasFailed) clearMessage();
         if (isOnStartPoint(x, y)) {
             showMessage("You are off to go!");
-            hasFail = false;
+            hasFailed = false;
+            isIn = true;
         }
         else if (isOnEndPoint(x, y)) {
             finish = true;
-            if (hasFail) {
+            if (hasFailed) {
                 showMessage("Please don't cheat. Go back and restart! ");
             }
             else {
@@ -150,7 +157,8 @@ window.onload = function () {
     drawing.addEventListener("mousemove", mouseHandler);
     drawing.addEventListener("mouseout", function () {
         if(!finish) clearMessage();
-        hasFail = true;
+        hasFailed = true;
+        isIn = false;
         printUp("#EDEDED");
         printDown("#EDEDED");
     })

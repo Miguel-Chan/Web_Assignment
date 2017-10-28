@@ -1,0 +1,76 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+h1 {
+    font-weight: bold;
+}
+h2 {
+    font-weight: normal;
+}
+#panel {
+    width: 20%;
+    height: 10%;
+    margin: 0 auto;
+    text-align: center;
+}
+#panel > * {
+    margin: 2%;
+}
+#panel .info {
+    margin-left: 10%;
+    display: inline;
+}
+#panel div {
+    display: inline-block;
+}
+#switch, #game-stage {
+    width: 40%;
+}
+#switch {
+    margin-right: 3%;
+}
+#switch input {
+    width: 100%;
+    height: 100%;
+}
+#game-stage {
+    border: solid grey 1px;
+    text-align: left;
+}
+.safe {
+    color: black;
+}
+.alarm {
+    color: red;
+}
+#timer, #point {
+    width: 15%;
+    border: solid grey 1px;
+    text-align: left;
+}
+hr {
+    width: 270px;
+}
+#playground {
+    margin: 0 auto;
+    width: 270px;
+}
+.holes {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+#instruction {
+    margin: 0 auto;
+    width: 50%;
+}
+#instruction * {
+    text-align: left;
+    font-family: Courier, sans-serif;
+}

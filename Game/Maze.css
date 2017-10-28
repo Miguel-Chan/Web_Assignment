@@ -11,6 +11,7 @@ body {
 canvas {
     height: 370px;
     width: 510px;
+    cursor: pointer;
 }
 #wall_sample {
     width: 100px;
