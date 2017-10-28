@@ -28,6 +28,7 @@ function clockStart() {
 function gameSwitch() {
     let stage = document.getElementById("game-stage");
     if(isPlaying) {
+        holes[current_index].checked = false;
         clearInterval(time_interval);
         stage.innerText = "Stopped";
         stage.className = "ease";
@@ -64,6 +65,7 @@ function setPoint() {
 
 function timeOut() {
     isPlaying = false;
+    holes[current_index].checked = false;
     clearInterval(time_interval);
     let stage = document.getElementById("game-stage");
     stage.innerText = "Time Out!";
@@ -73,6 +75,7 @@ function timeOut() {
 
 function gameOver() {
     let stage = document.getElementById("game-stage");
+    holes[current_index].checked = false;
     clearInterval(time_interval);
     stage.innerText = "Game Over!";
     stage.className = "alarm";
