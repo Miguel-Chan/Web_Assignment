@@ -29,11 +29,28 @@ h2 {
 #panel div {
     display: inline-block;
 }
-#switch, #game-stage {
-    width: 180px;
+#game-stage {
+    width: 175px;
 }
 #switch {
     margin-right: 15px;
+    width: 180px;
+}
+#switch * {
+    background-color: white;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    border: solid grey 1px;
+}
+#switch *:hover {
+    box-shadow: 0px 0px 1px 1px lightblue, 0px 0px 3px 3px lightpink;
+    background: linear-gradient(lightblue, white);
+    transition: 0.6s;
+}
+#switch *:active {
+    background: #7777FF;
+    transition: 1s;
 }
 #switch input {
     width: 100%;
