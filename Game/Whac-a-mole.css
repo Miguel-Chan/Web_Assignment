@@ -14,26 +14,26 @@ h2 {
     font-weight: normal;
 }
 #panel {
-    width: 20%;
-    height: 10%;
+    width: 500px;
+    height: 100px;
     margin: 0 auto;
     text-align: center;
 }
 #panel > * {
-    margin: 2%;
+    margin: 10px;
 }
 #panel .info {
-    margin-left: 10%;
+    margin-left: 10px;
     display: inline;
 }
 #panel div {
     display: inline-block;
 }
 #switch, #game-stage {
-    width: 50%;
+    width: 180px;
 }
 #switch {
-    margin-right: 3%;
+    margin-right: 15px;
 }
 #switch input {
     width: 100%;
@@ -50,7 +50,7 @@ h2 {
     color: red;
 }
 #timer, #point {
-    width: 15%;
+    width: 60px;
     border: solid grey 1px;
     text-align: left;
 }
