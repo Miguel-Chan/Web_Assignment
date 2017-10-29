@@ -3,13 +3,14 @@
 var playground;
 var holes = [];
 var isPlaying = false;
+var pausing = false;
 var current_index = 0;
 var point = 0;
 var time_interval;
 
-function clockStart() {
+function clockStart(time = 30) {
     let timer = document.getElementById("timer");
-    timer.innerText = "30";
+    timer.innerText = time;
     timer.className = "ease";
     let clockGo = function () {
         if (timer.innerText <= 10) timer.className = "alarm";
@@ -28,13 +29,20 @@ function clockStart() {
 function gameSwitch() {
     let stage = document.getElementById("game-stage");
     if(isPlaying) {
-        holes[current_index].checked = false;
-        clearInterval(time_interval);
-        stage.innerText = "Stopped";
-        stage.className = "ease";
-        holes[current_index].checked = false;
-        isPlaying = false;
-        alert("You have stopped the game.\nYour score is: " + point);
+        if(!pausing) {
+            holes[current_index].checked = false;
+            clearInterval(time_interval);
+            stage.innerText = "Pausing...";
+            stage.className = "ease";
+            pausing = true;
+        }
+        else {
+            holes[current_index].checked = true;
+            clockStart(document.getElementById("timer").innerText);
+            stage.innerText = "Playing";
+            stage.className = "ease";
+            pausing = false;
+        }
     }
     else {
         point = 0;
@@ -68,7 +76,7 @@ function timeOut() {
     holes[current_index].checked = false;
     clearInterval(time_interval);
     let stage = document.getElementById("game-stage");
-    stage.innerText = "Time Out!";
+    stage.innerText = "Time's up!";
     stage.className = "alarm";
     alert("Time's up!\nYour Score: " + point);
 }
@@ -109,11 +117,14 @@ window.onload = function () {
                     this.checked = false;
                 }
                 else {
-                    if (x !== current_index) {
-                        missHit();
-                        this.checked = false;
+                    if(!pausing) {
+                        if (x !== current_index) {
+                            missHit();
+                            this.checked = false;
+                        }
+                        else correctHit();
                     }
-                    else correctHit();
+                    else this.checked = false;
                 }
             }
         }(i));
