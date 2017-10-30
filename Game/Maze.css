@@ -7,9 +7,14 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
+    font-family: Consolas, Arial, serif;
+}
+#message {
+    font-size: 20px;
+    height: 40px;
 }
 canvas {
-    height: 370px;
+    height: 320px;
     width: 510px;
     cursor: pointer;
 }

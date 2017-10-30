@@ -87,7 +87,7 @@ function gameOver() {
     clearInterval(time_interval);
     stage.innerText = "Game Over!";
     stage.className = "alarm";
-    alert("Sad! You have missed too much moles!");
+    alert("Sad! You have missed too many moles!");
     isPlaying = false;
 }
 
