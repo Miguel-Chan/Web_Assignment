@@ -26,7 +26,7 @@ h2 {
     margin-left: 10px;
     display: inline;
 }
-#panel div {
+#panel div, canvas {
     display: inline-block;
 }
 #game-stage {
@@ -66,10 +66,10 @@ h2 {
 .alarm {
     color: red;
 }
-#timer, #point {
+canvas, #point {
     width: 60px;
     border: solid grey 1px;
-    text-align: left;
+    height: 22px;
 }
 hr {
     width: 270px;

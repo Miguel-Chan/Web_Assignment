@@ -7,24 +7,33 @@ var pausing = false;
 var current_index = 0;
 var point = 0;
 var time_interval;
+var time_remain = 0; // 2/second
 
-function clockStart(time = 30) {
-    let timer = document.getElementById("timer");
-    timer.innerText = time;
-    timer.className = "ease";
+function clockStart() {
     let clockGo = function () {
-        if (timer.innerText <= 10) timer.className = "alarm";
-        if(timer.innerText === "0") {
-            timer.className = "ease";
+        time_remain--;
+        showTime();
+        if(time_remain === 0) {
             timeOut();
         }
-        else {
-            timer.innerText -= 1;
-        }
     };
-    time_interval = setInterval(clockGo, 1000)
+    clockGo();
+    time_interval = setInterval(clockGo, 500)
 }
 
+function showTime() {
+    drawTimeBar();
+    let timer = document.getElementById("timer").getContext("2d");
+    timer.fillStyle = time_remain <= 20 ? "#FF0000" : "#000000";
+    timer.fillText(Math.floor(time_remain/2).toString(), 30, 18);
+}
+
+function drawTimeBar() {
+    let timer = document.getElementById("timer").getContext("2d");
+    timer.fillStyle = time_remain <= 20 ? "#FF2285" :"#96bcff";
+    timer.clearRect(0, 0, 60, 22);
+    timer.fillRect(0, 0, time_remain, 22);
+}
 
 function gameSwitch() {
     let stage = document.getElementById("game-stage");
@@ -48,9 +57,10 @@ function gameSwitch() {
         point = 0;
         setPoint();
         setIndex(getRandomIndex());
+        isPlaying = true;
         stage.innerText = "Playing";
         stage.className = "ease";
-        isPlaying = true;
+        time_remain = 61;
         clockStart();
     }
 }
@@ -131,4 +141,13 @@ window.onload = function () {
         playground.appendChild(new_hole);
         holes[i] = new_hole;
     }
+    let timer = document.getElementById("timer");
+    timer.width = 60;
+    timer.height = 22;
+    timer = timer.getContext("2d");
+    timer.fillStyle = "#000000";
+    timer.font = "normal 20px serif";
+    timer.textAlign = "center";
+    time_remain = 61;
+    showTime();
 };
