@@ -85,6 +85,8 @@ function isInDownArea(x, y) {
 }
 
 function showMessage(text) {
+    clearMessage();
+    document.getElementById("message").style.opacity = 1;
     document.getElementById("message").innerText = text;
 }
 
@@ -97,7 +99,7 @@ function isOnEndPoint(x, y) {
 }
 
 function clearMessage() {
-    document.getElementById("message").innerText = "";
+    document.getElementById("message").style.opacity = 0;
 }
 
 function mouseHandler(e) {
@@ -158,5 +160,6 @@ window.onload = function () {
         isIn = false;
         printUp("#EDEDED");
         printDown("#EDEDED");
-    })
+    });
+    document.getElementById("message").style.opacity = 0;
 };

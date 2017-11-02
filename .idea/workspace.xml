@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f4f50add-7c84-4755-9ca9-ce1c15315e48" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/Whac-a-mole.css" afterPath="$PROJECT_DIR$/Game/Whac-a-mole.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/Maze.css" afterPath="$PROJECT_DIR$/Game/Maze.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/Maze.js" afterPath="$PROJECT_DIR$/Game/Maze.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/Whac-a-mole.html" afterPath="$PROJECT_DIR$/Game/Whac-a-mole.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game/Whac-a-mole.js" afterPath="$PROJECT_DIR$/Game/Whac-a-mole.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +22,8 @@
       <file leaf-file-name="Maze.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game/Maze.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state relative-caret-position="174">
+              <caret line="6" column="58" lean-forward="true" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -32,38 +32,21 @@
       <file leaf-file-name="Maze.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game/Maze.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
-              <folding />
+            <state relative-caret-position="348">
+              <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+              <folding>
+                <marker date="1509634044374" expanded="true" signature="49:125" ph="{...}" />
+                <marker date="1509634044374" expanded="true" signature="367:370" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Maze.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Maze.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Game/Maze.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Whac-a-mole.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="12" column="70" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Whac-a-mole.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="-1627">
+              <caret line="84" column="1" lean-forward="true" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -72,8 +55,8 @@
       <file leaf-file-name="Whac-a-mole.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="78" column="32" lean-forward="false" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+            <state relative-caret-position="406">
+              <caret line="47" column="1" lean-forward="false" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -83,7 +66,17 @@
         <entry file="file://$PROJECT_DIR$/Game/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="174">
-              <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+              <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Whac-a-mole.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="725">
+              <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -134,7 +127,6 @@
         <option value="chrome-extension://aapbdbdomjkkjkaonfhkkikfgjllcleb/bubble_compiled.js" />
         <option value="vm:146" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/preload.js" />
         <option value="vm:148" />
         <option value="$PROJECT_DIR$/Calculator/Calculator.html" />
         <option value="$PROJECT_DIR$/Calculator/style.css" />
@@ -147,14 +139,29 @@
         <option value="chrome-extension://kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/bundle-cs.js" />
         <option value="extensions::utils" />
         <option value="$PROJECT_DIR$/Maze/Maze.js" />
-        <option value="$PROJECT_DIR$/Game/Maze.html" />
-        <option value="extensions::messaging" />
-        <option value="$PROJECT_DIR$/Game/Maze.css" />
-        <option value="$PROJECT_DIR$/Game/Maze.js" />
         <option value="$PROJECT_DIR$/Game/index.html" />
-        <option value="$PROJECT_DIR$/Game/Whac-a-mole.html" />
-        <option value="$PROJECT_DIR$/Game/Whac-a-mole.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/preload.js" />
+        <option value="extensions::messaging" />
+        <option value="chrome-extension://ngpampappnmepgilojfohadhhmbhlaek/content.js" />
+        <option value="chrome-extension://ohcpnigalekghcmgcdcenkpelffpdolg/colorpick.user.js" />
+        <option value="chrome-extension://kbfnbcaeplbcioakkpcpgfkobkghlhen/src/js/Grammarly.js" />
+        <option value="chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/content.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/libs/diff_match_patch.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/libs/dom.patched.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/libs/balalaika.patched.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/i18n-helper.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/assistant/js/adguard-selector.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/assistant/js/adguard-rules-constructor.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/assistant/js/slider-widget.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/assistant/js/assistant.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/assistant/js/start-assistant.js" />
+        <option value="chrome-extension://bgnkhhnnamicmpeenaelnjfhikgbkllg/lib/content-script/devtools-helper.js" />
         <option value="$PROJECT_DIR$/Game/Whac-a-mole.css" />
+        <option value="$PROJECT_DIR$/Game/Whac-a-mole.js" />
+        <option value="$PROJECT_DIR$/Game/Whac-a-mole.html" />
+        <option value="$PROJECT_DIR$/Game/Maze.css" />
+        <option value="$PROJECT_DIR$/Game/Maze.html" />
+        <option value="$PROJECT_DIR$/Game/Maze.js" />
       </list>
     </option>
   </component>
@@ -164,7 +171,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1932" />
@@ -185,20 +192,15 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="web_lab" type="b2602c69:ProjectViewProjectNode" />
               <item name="web_lab" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web_lab" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web_lab" type="462c0819:PsiDirectoryNode" />
-              <item name="Calculator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web_lab" type="b2602c69:ProjectViewProjectNode" />
@@ -237,7 +239,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Whac-a-mole.html">
+  <component name="RunManager" selected="JavaScript Debug.Maze.html">
     <configuration name="Calculator.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/web_lab/Calculator/Calculator.html" />
     <configuration name="Maze.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/web_lab/Game/Maze.html" />
     <configuration name="Whac-a-mole.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/web_lab/Game/Whac-a-mole.html" />
@@ -347,8 +349,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Whac-a-mole.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.Maze.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Maze.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.Whac-a-mole.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Calculator.html" />
       </list>
     </recent_temporary>
@@ -392,15 +394,18 @@
       <workItem from="1508659965965" duration="17855000" />
       <workItem from="1508683168518" duration="676000" />
       <workItem from="1508684262693" duration="321000" />
-      <workItem from="1509017686592" duration="13779000" />
+      <workItem from="1509017686592" duration="19496000" />
+      <workItem from="1509368008108" duration="5576000" />
+      <workItem from="1509632870131" duration="14000" />
+      <workItem from="1509632898139" duration="1331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104634000" />
+    <option name="totallyTimeSpent" value="117272000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="2" width="1932" height="1045" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -415,14 +420,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18162839" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28980893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28893661" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -468,11 +473,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Game/Maze.js</url>
-          <line>104</line>
+          <line>103</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Game/Whac-a-mole.js</url>
+          <line>148</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Game/Maze.js</url>
+          <line>15</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Game/Maze.js</url>
+          <line>154</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -697,13 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Recipe/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1377">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Movie_Review/tmnt.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -756,66 +769,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Maze/Maze.css" />
     <entry file="file://$PROJECT_DIR$/Maze/Maze.js" />
-    <entry file="file://$PROJECT_DIR$/Game/Maze.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Game/Maze.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Calculator/Calculator.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/Maze.js">
+    <entry file="file://$PROJECT_DIR$/Recipe/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="261">
+          <caret line="27" column="49" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="27" selection-end-column="49" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.css" />
     <entry file="file://$PROJECT_DIR$/Game/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="78" column="32" lean-forward="false" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" column="70" lean-forward="false" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
+        <state relative-caret-position="725">
+          <caret line="25" column="51" lean-forward="false" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.css">
+    <entry file="file://$PROJECT_DIR$/Game/Whac-a-mole.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        <state relative-caret-position="406">
+          <caret line="47" column="1" lean-forward="false" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/Maze.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="58" lean-forward="true" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/Maze.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding>
+            <marker date="1509634044374" expanded="true" signature="49:125" ph="{...}" />
+            <marker date="1509634044374" expanded="true" signature="367:370" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game/Maze.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1627">
+          <caret line="84" column="1" lean-forward="true" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
           <folding />
         </state>
       </provider>
