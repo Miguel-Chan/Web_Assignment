@@ -20,6 +20,12 @@ h2 {
     height: 40px;
     transition: all 0.8s;
 }
+.showing {
+    opacity: 1;
+}
+.hiding {
+    opacity: 0;
+}
 canvas {
     height: 320px;
     width: 510px;

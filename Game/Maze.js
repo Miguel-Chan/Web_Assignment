@@ -85,9 +85,20 @@ function isInDownArea(x, y) {
 }
 
 function showMessage(text) {
-    clearMessage();
-    document.getElementById("message").style.opacity = 1;
-    document.getElementById("message").innerText = text;
+    let msg = document.getElementById("message");
+    if (msg.innerText !== text) {
+        if (msg.className === "showing") {
+            clearMessage();
+            setTimeout(function () {
+                msg.className = "showing";
+                msg.innerText = text;
+            }, 500);
+        }
+        else {
+            msg.className = "showing";
+            msg.innerText = text;
+        }
+    }
 }
 
 function isOnStartPoint(x, y) {
@@ -99,7 +110,7 @@ function isOnEndPoint(x, y) {
 }
 
 function clearMessage() {
-    document.getElementById("message").style.opacity = 0;
+    document.getElementById("message").className = "hiding";
 }
 
 function mouseHandler(e) {
@@ -147,6 +158,7 @@ function mouseHandler(e) {
                 showMessage("Congrats! You have finished the maze! ");
             }
         }
+        else clearMessage();
     }
 }
 
@@ -161,5 +173,5 @@ window.onload = function () {
         printUp("#EDEDED");
         printDown("#EDEDED");
     });
-    document.getElementById("message").style.opacity = 0;
+    document.getElementById("message").className = "hiding";
 };
