@@ -8,6 +8,7 @@ var context;
 var finish = false;
 var hasFailed = true;
 var isIn = false;
+var hasWin = false;
 
 
 
@@ -99,6 +100,9 @@ function showMessage(text) {
             msg.innerText = text;
         }
     }
+    else if (msg.className === "hiding") {
+        msg.className = "showing";
+    }
 }
 
 function isOnStartPoint(x, y) {
@@ -120,45 +124,48 @@ function mouseHandler(e) {
     x -= drawing.getBoundingClientRect().x || drawing.getBoundingClientRect().left;
     y -= drawing.getBoundingClientRect().y || drawing.getBoundingClientRect().top;
     finish = false;
-    if(isInUpArea(x, y)) {
-        if (isIn) {
-            if (!hasFailed) {
-                printUp("#ED2063");
-                showMessage("Oops! You touched the wall! Try again!");
-                hasFailed = true;
+    if (!hasWin) {
+        if (isInUpArea(x, y)) {
+            if (isIn) {
+                if (!hasFailed && !hasWin) {
+                    printUp("#ED2063");
+                    showMessage("Oops! You touched the wall! Try again!");
+                    hasFailed = true;
+                }
             }
+            else showMessage("Now go to the start point and start playing!")
         }
-        else showMessage("Now go to the start point and start playing!")
+        else if (isInDownArea(x, y)) {
+            if (isIn) {
+                if (!hasFailed && !hasWin) {
+                    printDown("#ED2063");
+                    showMessage("Oops! You touched the wall! Try again!");
+                    hasFailed = true;
+                }
+            }
+            else showMessage("Now go to the start point and start playing!")
+        }
+        else {
+            printUp("#EDEDED");
+            printDown("#EDEDED");
+            if (isOnEndPoint(x, y)) {
+                finish = true;
+                if (hasFailed) {
+                    showMessage("Don't cheat, you should start from 'S' and move to 'E' inside the maze!");
+                }
+                else {
+                    showMessage("Congrats! You have finished the maze!");
+                    hasWin = true;
+                }
+            }
+            else clearMessage();
+        }
     }
-    else if(isInDownArea(x, y)) {
-        if (isIn) {
-            if(!hasFailed) {
-                printDown("#ED2063");
-                showMessage("Oops! You touched the wall! Try again!");
-                hasFailed = true;
-            }
-        }
-        else showMessage("Now go to the start point and start playing!")
-    }
-    else {
-        printUp("#EDEDED");
-        printDown("#EDEDED");
-        if (hasFailed) clearMessage();
-        if (isOnStartPoint(x, y)) {
-            showMessage("You are off to go!");
-            hasFailed = false;
-            isIn = true;
-        }
-        else if (isOnEndPoint(x, y)) {
-            finish = true;
-            if (hasFailed) {
-                showMessage("Don't cheat, you should start form the 'S' and move to the 'E' inside the maze! ");
-            }
-            else {
-                showMessage("Congrats! You have finished the maze! ");
-            }
-        }
-        else clearMessage();
+    if (isOnStartPoint(x, y)) {
+        showMessage("You are off to go!");
+        hasFailed = false;
+        hasWin = false;
+        isIn = true;
     }
 }
 
@@ -167,7 +174,7 @@ window.onload = function () {
     initialize();
     drawing.addEventListener("mousemove", mouseHandler);
     drawing.addEventListener("mouseout", function () {
-        if(!finish) clearMessage();
+        if(!finish && !hasWin) clearMessage();
         hasFailed = true;
         isIn = false;
         printUp("#EDEDED");

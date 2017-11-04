@@ -18,7 +18,7 @@ h2 {
 #message {
     font-size: 20px;
     height: 40px;
-    transition: all 0.8s;
+    transition: all 0.4s;
 }
 .showing {
     opacity: 1;
