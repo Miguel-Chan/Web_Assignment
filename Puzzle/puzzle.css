@@ -12,15 +12,76 @@ span {
     height: 500px;
     width: 500px;
     margin: 20px auto 25px;
+    text-align: left;
 }
 .pieces {
     width: 121px;
     height: 121px;
-    border: 2px solid grey;
+    border: 2px solid #b0afaf;
     background-image: url("panda.jpg");
-    background-size: 125px 125px;
+    background-size: 500px 500px;
     display: inline-block;
-    margin: 0;
+    margin: 0 auto -4px;
+    padding: 0;
+    font-size: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    /*transition: 0.5s;*/
+}
+.pieces:hover {
+    width: 123px;
+    height: 123px;
+    border: 1px solid #b0afaf;
+    cursor: pointer;
+}
+.piece-0 {
+    background-position: 0px 0px;
+}
+.piece-1 {
+    background-position: 375px 0px;
+}
+.piece-2 {
+    background-position: 250px 0px;
+}
+.piece-3 {
+    background-position: 125px 0px;
+}
+.piece-4 {
+    background-position: 0px 375px;
+}
+.piece-5 {
+    background-position: 375px 375px;
+}
+.piece-6 {
+    background-position: 250px 375px;
+}
+.piece-7 {
+    background-position: 125px 375px;
+}
+.piece-8 {
+    background-position: 0px 250px;
+}
+.piece-9 {
+    background-position: 375px 250px;
+}
+.piece-10 {
+    background-position: 250px 250px;
+}
+.piece-11 {
+    background-position: 125px 250px;
+}
+.piece-12 {
+    background-position: 0px 125px;
+}
+.piece-13 {
+    background-position: 375px 125px;
+}
+.piece-14 {
+    background-position: 250px 125px;
+}
+.piece-15 {
+    visibility: hidden;
 }
 #switch {
     width: 120px;
@@ -31,4 +92,8 @@ span {
     box-shadow: 4px 4px 5px grey;
     border: none;
     font-size: 21px;
+}
+#switch:active {
+    outline: solid skyblue 1px;
+    box-shadow: -2px -2px 5px grey;
 }
