@@ -130,12 +130,13 @@ function startGame() {
     $('#playground').empty();
     for (var i = 0; i < sequence.length; i++) {
         var new_piece = $("<div></div>").addClass("pieces").addClass("piece-" + sequence[i]);
-        new_piece.click(getPieceClickFunc(i, sequence[i]));
-        if (i === current_blank) new_piece.attr("id", "blank");
+        if (i === current_blank) new_piece.attr("id", "blank").removeClass("pieces");
+        else new_piece.click(getPieceClickFunc(i, sequence[i]));
         $("#playground").append(new_piece);
         pieces[i] = new_piece;
     }
     $(".pieces").css("backgroundImage", "url(\""+ currentPictureFile + "\")");
+    $("#blank").animate({opacity: "1"}, 1500).animate({opacity: "0"}, 1500);
 }
 
 function getPieceClickFunc(ini, cls) {
