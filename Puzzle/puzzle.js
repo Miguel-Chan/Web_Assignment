@@ -60,9 +60,6 @@ function move(element, direction, pos) {
         if(check()) {
             $("#message").text("恭喜！你完成了拼图！");
         }
-        else {
-            $("#message").text("");
-        }
     }, 400);
     return true;
 }
@@ -125,7 +122,6 @@ function checkSequence(seq) {
 
 function startGame() {
     $("#switch").text("重新开始");
-    $("#message").text("");
     var sequence = generateSequence();
     while(!checkSequence(sequence))
         sequence = generateSequence();
@@ -139,6 +135,8 @@ function startGame() {
     }
     $(".pieces").css("backgroundImage", "url(\""+ currentPictureFile + "\")");
     $("#blank").animate({opacity: "1"}, 1500).animate({opacity: "0"}, 1500);
+    $("#message").text("复原后空缺位置为：第" + Math.floor(sequence[current_blank]/4+1) + "行，第"
+                        + Math.floor(sequence[current_blank]%4+1) + "列")
 }
 
 function getPieceClickFunc(ini, cls) {
