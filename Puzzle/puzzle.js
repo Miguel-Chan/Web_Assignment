@@ -13,6 +13,8 @@ function addImage() {
         return;
     }
     reader.readAsDataURL(file);
+    if (file.type === "image/gif")
+        alert("Well... If you really want to try this on gif...");
     reader.onload = function(eve) {
         currentPictureFile = eve.target.result;
         $(".pieces").css("backgroundImage", "url(\""+ currentPictureFile + "\")");
