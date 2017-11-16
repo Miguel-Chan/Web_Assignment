@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4f50add-7c84-4755-9ca9-ce1c15315e48" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Puzzle/puzzle.css" afterPath="$PROJECT_DIR$/Puzzle/puzzle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Puzzle/puzzle.html" afterPath="$PROJECT_DIR$/Puzzle/puzzle.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Puzzle/puzzle.js" afterPath="$PROJECT_DIR$/Puzzle/puzzle.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -42,8 +40,8 @@
       <file leaf-file-name="puzzle.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Puzzle/puzzle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="134" column="78" lean-forward="false" selection-start-line="134" selection-start-column="78" selection-end-line="134" selection-end-column="78" />
+            <state relative-caret-position="-1653">
+              <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -174,7 +172,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-4" />
     <option name="width" value="1932" />
     <option name="height" value="1045" />
@@ -422,15 +420,15 @@
       <workItem from="1509802267514" duration="2823000" />
       <workItem from="1510584787161" duration="13271000" />
       <workItem from="1510639959801" duration="21658000" />
-      <workItem from="1510757217799" duration="2584000" />
+      <workItem from="1510757217799" duration="7017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159050000" />
+    <option name="totallyTimeSpent" value="163483000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -516,8 +514,14 @@
           <line>88</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Puzzle/puzzle.js</url>
+          <line>167</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="27" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -866,8 +870,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Puzzle/puzzle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="134" column="78" lean-forward="false" selection-start-line="134" selection-start-column="78" selection-end-line="134" selection-end-column="78" />
+        <state relative-caret-position="-1653">
+          <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
           <folding />
         </state>
       </provider>

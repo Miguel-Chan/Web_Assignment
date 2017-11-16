@@ -58,7 +58,7 @@ function move(element, direction, pos) {
         element.animate({top: '+=125px'}, 400);
         $("#blank").animate({top: '-=125px'}, 0);
     }
-    if (pos) pieces.swapElement(pos, current_blank);
+    if (typeof pos !== "undefined") pieces.swapElement(pos, current_blank);
     setTimeout(function () {
         if(check()) {
             $("#message").text("恭喜！你完成了拼图！");
@@ -148,10 +148,12 @@ function getPausingFunc() {
         else {
             isPausing = true;
             for (var i = 0; i < pieces.length; i++) {
-                var className = pieces[i].attr("class");
+                let className = pieces[i].attr("class");
                 sequence[i] = Math.abs(className.slice(className.length-2));
             }
-            showPicture();
+            let className = pieces[current_blank].attr("class");
+            var blankPos = Math.abs(className.slice(className.length-2));
+            showPicture(blankPos);
             $("#pause").text("恢复");
         }
     }
@@ -204,10 +206,11 @@ function getPieceClickFunc(ini, cls) {
     }
 }
 
-function showPicture() {
+function showPicture(blankSpot) {
     $('#playground').empty();
     for (var i = 0; i < 16; i++) {
         var new_piece = $("<div></div>").addClass("pieces").addClass("piece-" + i);
+        if (typeof blankSpot !== "undefined" && i === blankSpot) new_piece.attr("id", "blank").removeClass("pieces");
         $("#playground").append(new_piece);
         pieces[i] = new_piece;
     }
