@@ -124,7 +124,7 @@ p {
 #blank:hover {
     cursor: auto;
 }
-#switch {
+.click {
     width: 120px;
     height: 40px;
     background-color: #4286F5;
@@ -133,8 +133,9 @@ p {
     box-shadow: 4px 4px 5px grey;
     border: none;
     font-size: 21px;
+    margin: 5px;
 }
-#switch:active {
+.click:active {
     outline: solid skyblue 1px;
     box-shadow: -2px -2px 5px grey;
 }

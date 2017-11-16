@@ -19,6 +19,9 @@ function addImage() {
         currentPictureFile = eve.target.result;
         $(".pieces").css("backgroundImage", "url(\""+ currentPictureFile + "\")");
         showPicture();
+        $("#switch").text("开始");
+        $("#message").text("请点击开始按钮以开始游戏");
+        $("#pause").remove();
     }
 }
 
@@ -120,11 +123,7 @@ function checkSequence(seq) {
     return getParity(inversion, current_blank) === getParity(originInversion, originZeroEle);
 }
 
-function startGame() {
-    $("#switch").text("重新开始");
-    var sequence = generateSequence();
-    while(!checkSequence(sequence))
-        sequence = generateSequence();
+function printPicture(sequence) {
     $('#playground').empty();
     for (var i = 0; i < sequence.length; i++) {
         var new_piece = $("<div></div>").addClass("pieces").addClass("piece-" + sequence[i]);
@@ -135,6 +134,38 @@ function startGame() {
     }
     $(".pieces").css("backgroundImage", "url(\""+ currentPictureFile + "\")");
     $("#blank").animate({opacity: "1"}, 1500).animate({opacity: "0"}, 1500);
+}
+
+function getPausingFunc() {
+    var isPausing = false;
+    var sequence = [];
+    return function () {
+        if (isPausing) {
+            isPausing = false;
+            printPicture(sequence);
+            $("#pause").text("显示原图");
+        }
+        else {
+            isPausing = true;
+            for (var i = 0; i < pieces.length; i++) {
+                var className = pieces[i].attr("class");
+                sequence[i] = Math.abs(className.slice(className.length-2));
+            }
+            showPicture();
+            $("#pause").text("恢复");
+        }
+    }
+}
+
+function startGame() {
+    $("#pause").remove();
+    $("#switch").text("重新开始");
+    var sequence = generateSequence();
+    while(!checkSequence(sequence))
+        sequence = generateSequence();
+    printPicture(sequence);
+    $("#button-area").append($("<button>").attr("id", "pause").addClass("click").text("显示原图"));
+    $("#pause").click(getPausingFunc());
     $("#message").text("复原后空缺位置为：第" + Math.floor(sequence[current_blank]/4+1) + "行，第"
                         + Math.floor(sequence[current_blank]%4+1) + "列")
 }
@@ -174,22 +205,19 @@ function getPieceClickFunc(ini, cls) {
 }
 
 function showPicture() {
-    current_blank = 100;
     $('#playground').empty();
     for (var i = 0; i < 16; i++) {
         var new_piece = $("<div></div>").addClass("pieces").addClass("piece-" + i);
-        new_piece.click(getPieceClickFunc(i, i));
         $("#playground").append(new_piece);
         pieces[i] = new_piece;
     }
     $(".pieces").css("backgroundImage", "url(\""+ currentPictureFile + "\")");
-    $("#switch").text("开始");
-    $("#message").text("请点击开始按钮以开始游戏");
 }
 
 window.onload = function () {
     $("#file").change(addImage);
+    current_blank = -2;
     showPicture();
-    current_blank = 15;
-    $("#switch").click(startGame);
+    $("#switch").click(startGame).text("开始");
+    $("#message").text("请点击开始按钮以开始游戏");
 };
