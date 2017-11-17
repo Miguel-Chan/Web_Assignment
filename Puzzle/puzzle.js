@@ -176,13 +176,13 @@ function getPieceClickFunc(ini, cls) {
     var pos = ini;
     return function () {
         if (Math.abs(pos - current_blank) === 1) {
-            if (pos - current_blank > 0 && pos % 4 !== 0) {
+            if (pos - current_blank > 0 && pos % 4 !== 0 && Math.floor(current_blank / 4) === Math.floor(pos / 4)) {
                 if (move($(".piece-" + cls), "left", pos)) {
                     current_blank += 1;
                     pos -= 1;
                 }
             }
-            else if (pos % 4 !== 3) {
+            else if (pos % 4 !== 3 && Math.floor(current_blank / 4) === Math.floor(pos / 4) ) {
                 if (move($(".piece-" + cls), "right", pos)) {
                     current_blank -= 1;
                     pos += 1;
@@ -190,13 +190,13 @@ function getPieceClickFunc(ini, cls) {
             }
         }
         else if (Math.abs(pos - current_blank) === 4) {
-            if (pos - current_blank > 0 && pos > 3) {
+            if (pos - current_blank > 0 && pos > 3 && pos % 4 === current_blank % 4) {
                 if (move($(".piece-" + cls), "up", pos)) {
                     current_blank += 4;
                     pos -= 4;
                 }
             }
-            else if (pos < 12) {
+            else if (pos < 12 && pos % 4 === current_blank % 4) {
                 if (move($(".piece-" + cls), "down", pos)) {
                     current_blank -= 4;
                     pos += 4;
