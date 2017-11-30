@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+}
+#main-area {
+    border: 2px solid grey;
+    width: 800px;
+    height: 400px;
+    margin: 0 auto;
+}
+#submit, #reset, #go-back{
+    width: 80px;
+    height: 30px;
+    background-color: #4286F5;
+    color: white;
+    font-weight: bold;
+    box-shadow: 4px 4px 5px grey;
+    border: none;
+    font-size: 21px;
+    margin: 5px;
+}
+p {
+    height: 20px;
+}
+#submit:hover, #reset:hover, #go-back:hover {
+    cursor: pointer;
+}
+#submit:active, #reset:active, #go-back:active {
+    outline: solid skyblue 1px;
+    box-shadow: -2px -2px 5px grey;
+}
+#msg {
+    color: red;
+}
+.checker {
+    height: 10px;
+}
+.invalid {
+    color: darkred;
+}
+.valid {
+    color: green;
+}
