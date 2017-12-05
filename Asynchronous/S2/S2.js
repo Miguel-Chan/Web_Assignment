@@ -48,9 +48,9 @@ window.onload = function () {
     });
     $(".apb").click(async function () {
         for (let i = 1; i <= 5; i++) {
-            await function () {
+            await function (index) {
                 return new Promise(resolve => {
-                    buttonHandler(i, resolve);
+                    buttonHandler(index, resolve);
                 });
             }(i)
         }
