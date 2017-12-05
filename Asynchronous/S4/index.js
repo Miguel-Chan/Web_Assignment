@@ -72,6 +72,7 @@ window.onload = function () {
         $(".button").removeClass("disabled").addClass("enabled");
     });
     $(".apb").click(async function () {
+        if ($(".button").hasClass("disabled")) return;
         $(".redot").hide().text("");
         let sequence = generateSequence();
         showSequence(sequence);

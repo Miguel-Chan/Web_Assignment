@@ -55,7 +55,7 @@ function handleAjax(req, res) {
     console.log("Request received");
     var random_time = 1000 + getRandomNumber(2000);
     var random_num  = 1 + getRandomNumber(9);
-    // random_time = 150;
+    random_time = 150;
     setTimeout(function(){
         res.writeHead(200, {'Content-Type': 'text/plain'});
         console.log("Response: " + random_num);

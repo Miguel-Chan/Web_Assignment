@@ -237,3 +237,9 @@ ul > * {
     color: red;
     font-size: 12pt;
 }
+#msg {
+    position: absolute;
+    bottom: 300px;
+    text-align: left;
+    color: blue;
+}
