@@ -230,3 +230,10 @@ ul > * {
 .enabled {
     background-color: rgba(48, 63, 159, 1);
 }
+#seq {
+    position: absolute;
+    top: 12px;
+    left: 30px;
+    color: red;
+    font-size: 12pt;
+}

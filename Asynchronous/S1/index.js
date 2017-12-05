@@ -8,8 +8,8 @@ window.onload = function () {
         for (let i = 1; i <= 5; i++) {
             if (i !== parseInt(id) && $("#butt-" + i).hasClass("enabled")) {
                 hold.push(i);
-                $("#butt-" + i).removeClass("enabled").addClass("disabled");
             }
+            $("#butt-" + i).removeClass("enabled").addClass("disabled");
         }
         $(".red-" + id).show().text("...");
         $.ajax("/").done(function (data) {

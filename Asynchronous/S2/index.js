@@ -1,17 +1,3 @@
-let redotSetter = new function () {
-    let filled = [];
-    this.setText =  function (id, val) {
-        $(".red-" + id).text(val);
-        if (filled.indexOf(id) === -1) filled.push(id);
-        if (filled.length === 5) setTimeout(function() {
-            $("#info-bar").trigger("click");
-            }, 500);
-    };
-    this.clearRecord = function () {
-        filled = [];
-    };
-}();
-
 async function buttonHandler(id, resolve) {
     if (!resolve) {
         if ($(this).hasClass("disabled")) return;
@@ -20,30 +6,23 @@ async function buttonHandler(id, resolve) {
     else if ($("#butt-" + id).hasClass("disabled")) return;
     $("#sum").text("");
     let hold = [];
-    if (!resolve) {
-        for (let i = 1; i <= 5; i++) {
-            if (i !== parseInt(id) && $("#butt-" + i).hasClass("enabled")) {
-                hold.push(i);
-                $("#butt-" + i).removeClass("enabled").addClass("disabled");
-            }
+    for (let i = 1; i <= 5; i++) {
+        if (i !== parseInt(id) && $("#butt-" + i).hasClass("enabled")) {
+            hold.push(i);
+            $("#butt-" + i).removeClass("enabled").addClass("disabled");
         }
     }
+    $("#butt-" + id).removeClass("enabled").addClass("disabled");
     $(".red-" + id).show().text("...");
     $.ajax("/").done(function (data) {
         if ($(".red-" + id).css("display") === "none") return;
-        if (!resolve)
-            $(".red-" + id).text(data);
-        else redotSetter.setText(id, data);
+        $(".red-" + id).text(data);
         for (let ind of hold)
             $("#butt-" + ind).removeClass("disabled").addClass("enabled");
         $("#butt-" + id).removeClass("enabled").addClass("disabled");
-        for (let i = 1; i <= 5; i++) {
-            if (isNaN(parseInt($(".red-" + i).text())) || $(".red-" + i).text().length === 0) return;
-        }
-        $("#info-bar").removeClass("disabled").addClass("enabled");
-        // if (!!resolve && id === 5) resolve();
+        if (hold.length === 0) $("#info-bar").removeClass("disabled").addClass("enabled");
+        if (!!resolve) resolve();
     });
-    // if (id !== 5) resolve();
 }
 
 window.onload = function () {
@@ -67,11 +46,21 @@ window.onload = function () {
         $("#info-bar").removeClass("enabled").addClass("disabled");
         $(".redot").hide().text("");
         $(".button").removeClass("disabled").addClass("enabled");
-        redotSetter.clearRecord();
     });
-    $(".apb").click(function () {
+    $(".apb").click(async function () {
         for (let i = 1; i <= 5; i++) {
-            buttonHandler(i, true);
+            await function (index) {
+                return new Promise(resolve => {
+                    buttonHandler(index, resolve);
+                });
+            }(i);
+            await new Promise(resolve => {setTimeout(resolve, 120)});
         }
+        await function () {
+            return new Promise(resolve => {
+                setTimeout(function() {$("#info-bar").trigger("click");}, 500);
+                resolve();
+            });
+        }();
     });
 };
