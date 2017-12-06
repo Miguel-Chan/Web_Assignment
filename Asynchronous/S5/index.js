@@ -60,9 +60,11 @@ let handlers = {
                 sum += num;
             }
         }
-        $("#sum").text(sum.toString());
-        $("#info-bar").removeClass("enabled").addClass("disabled");
-        $("#msg").append($("<li></li>").text("楼主异步调用战斗力感人，目测不超过" + sum));
+        setTimeout(function () {
+            $("#sum").text(sum.toString());
+            $("#info-bar").removeClass("enabled").addClass("disabled");
+            $("#msg").append($("<li></li>").text("楼主异步调用战斗力感人，目测不超过" + sum));
+        }, 450);
         resolve();
     }
 };
