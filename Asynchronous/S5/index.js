@@ -1,5 +1,6 @@
 let handlers = {
-    'ajaxHandler': function (i, hold, resolve, currentSum, text) {
+    'ajaxHandler': function (i, hold, resolve, reject, currentSum, text, rejectText) {
+        let isFail = this.isFail;
         return function (data) {
             if ($(".red-" + i).css("display") === "none" || !isNaN(parseInt($(".red-" + i).text()))) return;
             $(".red-" + i).text(data);
@@ -7,13 +8,18 @@ let handlers = {
                 $("#butt-" + ind).removeClass("disabled").addClass("enabled");
             $("#butt-" + i).removeClass("enabled").addClass("disabled");
             if (hold.length === 0) $("#info-bar").removeClass("disabled").addClass("enabled");
-            if (!!text) $("#msg").append($("<li></li>").text(text));
             currentSum += parseInt(data);
+            if (!!reject && isFail()) {
+                reject([rejectText, currentSum]);
+                $(".red-" + i).text("X");
+                return;
+            }
+            if (!!text) $("#msg").append($("<li></li>").text(text));
             if (!!resolve) resolve(currentSum);
         }
     },
     'isFail': function () {
-        return Math.random() < 0.1;
+        return Math.random() < 0.15;
     },
     'generalHandler': function (id, currentSum, resolve, reject, resolveText, rejectText) {
         let hold = [];
@@ -26,11 +32,7 @@ let handlers = {
         }
         $("#butt-" + id).removeClass("enabled").addClass("disabled");
         $(".red-" + id).show().text("...");
-        if (!!reject && this.isFail()) {
-            reject([rejectText, currentSum]);
-            return;
-        }
-        $.ajax("/" + id).done(this.ajaxHandler(id, hold, resolve, currentSum, resolveText));
+        $.ajax("/" + id).done(this.ajaxHandler(id, hold, resolve, reject, currentSum, resolveText, rejectText));
     },
     'aHandler': function (currentSum, resolve, reject) {
         this.generalHandler(1, currentSum, resolve, reject, "这是个天大的秘密", "这不是个天大的秘密");
@@ -49,12 +51,14 @@ let handlers = {
     },
     'bubbleHandler': function (sum, resolve, reject) {
         if (!!reject && this.isFail()) {
-            reject(["楼主异步调用战斗力强无敌，目测超过", sum]);
+            $("#sum").text("X");
+            reject(["楼主异步调用战斗力强无敌，目测超过", sum, 1]);
             return;
         }
         if (!sum) {
             sum = 0;
             for (let i = 1; i <= 5; i++) {
+                if ($(".red-" + i).text() === "X") continue;
                 let num = parseInt($(".red-" + i).text());
                 if (isNaN(num)) return;
                 sum += num;
@@ -68,6 +72,33 @@ let handlers = {
         resolve();
     }
 };
+
+async function robot(event, sequence, initSum) {
+    if (!sequence) {
+        $("#msg").empty();
+        $(".redot").hide().text("");
+        sequence = generateSequence();
+        showSequence(sequence);
+    }
+    if (typeof initSum === "undefined") initSum = 0;
+    try {
+        while (sequence.length !== 0) {
+            initSum = await function() {
+                return new Promise(function(resolve, reject) {
+                    handlers[getAlpha(sequence.shift()).toLowerCase() + "Handler"](initSum, resolve, reject);
+                })
+            }();
+        }
+        await new Promise(function (resolve, reject) {
+            handlers.bubbleHandler(initSum, resolve, reject);
+        })
+    }
+    catch (e) {
+        $("#msg").append($("<li></li>").text(e[0] + " " + e[1]));
+        initSum = e[1];
+        if (!e[2]) robot(event, sequence, initSum);
+    }
+}
 
 async function buttonHandler(id, resolve) {
     if (!resolve) {
@@ -118,46 +149,8 @@ window.onload = function () {
         $("#msg").empty();
         $(".button").removeClass("disabled").addClass("enabled");
     });
-    $(".apb").click(async function () {
+    $(".apb").click(function (event) {
         if ($(".button").hasClass("disabled")) return;
-        $("#msg").empty();
-        $(".redot").hide().text("");
-        let sequence = generateSequence();
-        showSequence(sequence);
-        let run = new Promise(function (resolve, reject) {
-            handlers[getAlpha(sequence[0]).toLowerCase() + "Handler"](0, resolve, reject);
-        }).then(function (sum) {
-            return new Promise(function (resolve, reject) {
-                handlers[getAlpha(sequence[1]).toLowerCase() + "Handler"](sum, resolve, reject);
-            });
-        }).then(function (sum) {
-            return new Promise(function (resolve, reject) {
-                handlers[getAlpha(sequence[2]).toLowerCase() + "Handler"](sum, resolve, reject);
-            });
-        }).then(function (sum) {
-            return new Promise(function (resolve, reject) {
-                handlers[getAlpha(sequence[3]).toLowerCase() + "Handler"](sum, resolve, reject);
-            });
-        }).then(function (sum) {
-            return new Promise(function (resolve, reject) {
-                handlers[getAlpha(sequence[4]).toLowerCase() + "Handler"](sum, resolve, reject);
-            });
-        });
-     /*   for (let i = 1; i < sequence.length; i++) {
-            run.then(function (ind) {
-                return function (sum) {
-                    return new Promise(function (resolve, reject) {
-                        handlers[getAlpha(sequence[ind]).toLowerCase() + "Handler"](sum, resolve, reject);
-                    });
-                }
-            }(i));
-        }*/
-        run.then(function (sum) {
-            return new Promise(function (resolve, reject) {
-                handlers.bubbleHandler(sum, resolve, reject)
-            })
-        }).catch(function (errorPair) {
-            $("#msg").append($("<li></li>").text(errorPair[0] + " " + errorPair[1]));
-        })
+        robot(event);
     });
 };
