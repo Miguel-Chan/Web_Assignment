@@ -1,7 +1,7 @@
 let handlers = {
     'ajaxHandler': function (i, hold, resolve, currentSum, text) {
         return function (data) {
-            if ($(".red-" + i).css("display") === "none") return;
+            if ($(".red-" + i).css("display") === "none" || !isNaN(parseInt($(".red-" + i).text()))) return;
             $(".red-" + i).text(data);
             for (let ind of hold)
                 $("#butt-" + ind).removeClass("disabled").addClass("enabled");
