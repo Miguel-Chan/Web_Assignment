@@ -14,8 +14,8 @@ async function buttonHandler(id, resolve) {
     }
     $("#butt-" + id).removeClass("enabled").addClass("disabled");
     $(".red-" + id).show().text("...");
-    $.ajax("/").done(function (data) {
-        if ($(".red-" + id).css("display") === "none") return;
+    $.ajax("/" + id).done(function (data) {
+        if ($(".red-" + id).css("display") === "none" || !isNaN(parseInt($(".red-" + id).text()))) return;
         $(".red-" + id).text(data);
         for (let ind of hold)
             $("#butt-" + ind).removeClass("disabled").addClass("enabled");

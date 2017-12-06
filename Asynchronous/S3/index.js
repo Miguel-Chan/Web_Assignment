@@ -31,7 +31,7 @@ async function buttonHandler(id, resolve) {
     $("#butt-" + id).removeClass("enabled").addClass("disabled");
     $(".red-" + id).show().text("...");
     $.ajax("/" + id).done(function (data) {
-        if ($(".red-" + id).css("display") === "none") return;
+        if ($(".red-" + id).css("display") === "none" || !isNaN(parseInt($(".red-" + id).text()))) return;
         if (!resolve)
             $(".red-" + id).text(data);
         else redotSetter.setText(id, data);
