@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title User Sign Up
+        link(rel='stylesheet', type='text/css', href='style.css')
+        script(type='text/javascript', src='jquery.js')
+        script(type='text/javascript', src='signin.js')
+    body
+        h1 登陆
+        #main-area
+            h2 用户登陆
+            form(method='post')
+                p
+                    label 用户名:
+                    input(name='username', type='text', placeholder='用户名')
+                p#username-checker.checker
+                p
+                    label 密码:
+                    input(name='password', type='password', placeholder='密码')
+                p#password-checker.checker
+            input#submit(type='submit')
+            button#reset 重置
+            p#msg

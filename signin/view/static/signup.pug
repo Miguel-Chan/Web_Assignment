@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title User Sign Up
+        link(rel='stylesheet', type='text/css', href='style.css')
+        script(type='text/javascript', src='jquery.js')
+        script(type='text/javascript', src='signup.js')
+    body
+        h1 注册
+        #main-area
+            h2 用户注册
+            form(method='post')
+                p
+                    label 用户名:
+                    input(name='username', type='text', placeholder='用户名')
+                p#username-checker.checker
+                p
+                    label 学号:
+                    input(name='number', type='text', placeholder='学号')
+                p#number-checker.checker
+                p
+                    label 密码:
+                    input(name='password', type='password', placeholder='密码')
+                p#password-checker.checker
+                p
+                    label 电话:
+                    input(name='phone', type='text', placeholder='电话')
+                p#phone-checker.checker
+                p
+                    label 邮箱:
+                    input(name='mail', type='text', placeholder='邮箱')
+                p#email-checker.checker
+            input#submit(type='submit')
+            button#reset 重置
+            p#msg

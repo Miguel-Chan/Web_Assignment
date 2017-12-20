@@ -1,0 +1,17 @@
+doctype html(lang='en')
+head
+    meta(charset='UTF-8')
+    title User Info
+    link(rel='stylesheet', type='text/css', href='style.css')
+    script(type='text/javascript', src='jquery.js')
+    script(type='text/javascript', src='signup.js')
+body
+    h1 详情
+    #main-area
+        h2 用户详情
+        p 用户名: #{username}
+        p 学号:  #{studentID}
+        p 电话:  #{phoneNumber}
+        p 邮箱:  #{email}
+        button#go-back 返回
+        p #{message}

@@ -1,0 +1,23 @@
+{
+  "name": "signin",
+  "version": "1.0.0",
+  "description": "A signin page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miguel Chan",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-pug": "^3.0.0-2",
+    "koa-router": "^7.3.0",
+    "koa-session": "^5.5.1",
+    "koa-session2": "^2.2.5",
+    "koa-static": "^4.0.2",
+    "mime": "^2.0.3",
+    "pug": "^2.0.0-rc.4"
+  }
+}
