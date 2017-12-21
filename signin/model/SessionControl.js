@@ -1,12 +1,11 @@
 const session = require('koa-session2');
-
-let sees_user = {};
+const SessionStore = require('./SessionStore');
 
 
 function confSession() {
     return session({
         key: "SESSIONID",
-        maxAge: 86400000,
+        store: new SessionStore()
     })
 }
 
@@ -27,7 +26,6 @@ function UnbindSession() {
     return function (sess) {
         delete sess['user'];
     }
-
 }
 
 module.exports = {

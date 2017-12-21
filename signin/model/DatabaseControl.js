@@ -26,7 +26,8 @@ function adder() {
             db.close();
         }
         catch (err) {
-            console.log("Error occur when connecting to database, Exiting.");
+            console.log(err);
+            console.log("Error connecting to database occurs when adding user, Exiting..");
             process.exit();
         }
     };
@@ -45,7 +46,8 @@ function getter() {
             return res;
         }
         catch (err) {
-            console.log("Error occur when connecting to database, Exiting.");
+            console.log(err);
+            console.log("Error connecting to database occurs when querying user, Exiting..");
             process.exit();
         }
     };
@@ -54,32 +56,91 @@ function getter() {
 
 function duplicateChecker() {
     return async function (user) {
-        let status = 1;
-        let db = await MongoClient.connect(url);
-        let base = db.db('signin');
-        if (user.username) {
-            let res = await base.collection('users').find({username: user.username}).toArray();
-            if (res.length !== 0) status *= 3;
+        try {
+            let status = 1;
+            let db = await MongoClient.connect(url);
+            let base = db.db('signin');
+            if (user.username) {
+                let res = await base.collection('users').find({username: user.username}).toArray();
+                if (res.length !== 0) status *= 3;
+            }
+            if (user.number) {
+                let res = await base.collection('users').find({number: user.number}).toArray();
+                if (res.length !== 0) status *= 4;
+            }
+            if (user.telephone) {
+                let res = await base.collection('users').find({telephone: user.telephone}).toArray();
+                if (res.length !== 0) status *= 7;
+            }
+            if (user.email) {
+                let res = await base.collection('users').find({email: user.email}).toArray();
+                if (res.length !== 0) status *= 11;
+            }
+            return status;
         }
-        if (user.number) {
-            let res = await base.collection('users').find({number: user.number}).toArray();
-            if (res.length !== 0) status *= 4;
+        catch (err) {
+            console.log(err);
+            console.log("Error connecting to database occurs when checking user duplicate, Exiting..");
+            process.exit();
         }
-        if (user.telephone) {
-            let res = await base.collection('users').find({telephone: user.telephone}).toArray();
-            if (res.length !== 0) status *= 7;
-        }
-        if (user.email) {
-            let res = await base.collection('users').find({email: user.email}).toArray();
-            if (res.length !== 0) status *= 11;
-        }
-        return status;
     }
 }
 
+function sessionAdder() {
+    return async function (sid, session, time) {
+        try {
+            await sessionDestroyer()(sid);
+            let db = await MongoClient.connect(url);
+            let base = db.db('signin');
+            base.collection('SESSION').createIndex({'timer': 1}, {expireAfterSeconds: time});
+            let data = {SESSIONID: sid, SESSION: session, timer: new Date()};
+            let res = await base.collection('SESSION').insertOne(data);
+        }
+        catch (err) {
+            console.log(err);
+            console.log("Error connecting to database occurs when adding session, Exiting..");
+            process.exit();
+        }
+    }
+}
+
+function sessionGetter() {
+    return async function (sid) {
+        try {
+            let db = await MongoClient.connect(url);
+            let base = db.db('signin');
+            let res = await base.collection('SESSION').find({SESSIONID: sid}).toArray();
+            if (res.length === 0) return undefined;
+            return res[0].SESSION;
+        }
+        catch (err) {
+            console.log(err);
+            console.log("Error connecting to database occurs when querying session, Exiting..");
+            process.exit();
+        }
+    }
+}
+
+function sessionDestroyer() {
+    return async function (sid) {
+        try {
+            let db = await MongoClient.connect(url);
+            let base = db.db('signin');
+            let res = await base.collection('SESSION').deleteMany({SESSIONID: sid});
+        }
+        catch (err) {
+            console.log(err);
+            console.log("Error connecting to database occurs when destroying session, Exiting..");
+            process.exit();
+        }
+    }
+}
 
 module.exports = {
     addUser: adder(),
     getUser: getter(),
-    checkDuplicate: duplicateChecker()
+    checkDuplicate: duplicateChecker(),
+    getSession: sessionGetter(),
+    addSession: sessionAdder(),
+    destroySession: sessionDestroyer()
 };

@@ -1,26 +1,25 @@
 const { Store } = require("koa-session2");
-let MongoClient = require('mongodb').MongoClient;
+const database = require('./DatabaseControl');
 
 class dbStore extends Store {
     constructor() {
         super();
-        this.mongo = new Redis();
     }
 
     async get(sid, ctx) {
-        let data = await this.redis.get(`SESSION:${sid}`);
-        return JSON.parse(data);
+        return await database.getSession(sid);
     }
 
-    async set(session, { sid =  this.getID(24), maxAge = 1000000 } = {}, ctx) {
+    async set(session, { sid =  this.getID(24), maxAge = 86400000 } = {}, ctx) {
         try {
-            // Use redis set EX to automatically drop expired sessions
-            await this.redis.set(`SESSION:${sid}`, JSON.stringify(session), 'EX', maxAge / 1000);
-        } catch (e) {}
+            await database.addSession(sid, session, maxAge / 1000);
+        } catch (err) {}
         return sid;
     }
 
     async destroy(sid, ctx) {
-        return await this.redis.del(`SESSION:${sid}`);
+        return await database.destroySession(sid);
     }
 }
+
+module.exports = dbStore;
