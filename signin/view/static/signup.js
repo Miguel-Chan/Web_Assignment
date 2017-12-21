@@ -29,6 +29,9 @@ function emailCheck(addr) {
 window.onload = function () {
     $("#reset").click(function () {
         $("[type=text]").val("");
+        $("[type=password]").val("");
+        $(".checker").text("");
+        $("#msg").text("");
     });
     $("#submit").click(function () {
         let name = $("[name=username]").val();
@@ -36,7 +39,8 @@ window.onload = function () {
         let password = $("[name=password]").val();
         let number = $("[name=number]").val();
         let mail = $("[name=mail]").val();
-        if (!(usernameCheck(name) && phoneCheck(telephone) && numberCheck(number) && emailCheck(mail) && passwordCheck(password))) {
+        let sec = $("[name=password-sec]").val();
+        if (password !== sec || !(usernameCheck(name) && phoneCheck(telephone) && numberCheck(number) && emailCheck(mail) && passwordCheck(password))) {
             $("#msg").text("注册信息有误，请检查后重试");
             return;
         }
@@ -110,10 +114,16 @@ window.onload = function () {
             $("#phone-checker").text("电话格式错误，要求：11位数字，不能以0开头").removeClass("valid").addClass("invalid");
         }
     });
-    $("[name=password]").focus(function () {
+    $("[name=password-sec], [name=password]").focus(function () {
         $("#password-checker").text("");
     }).blur(function () {
         let text = $("[name=password]").val();
+        let sec = $("[name=password-sec]").val();
+        if (sec === "") return;
+        if (text !== sec) {
+            $("#password-checker").text("两次输入的密码不一致！").removeClass("valid").addClass("invalid");
+            return;
+        }
         if (passwordCheck(text)) {
             $("#password-checker").text("√").removeClass("invalid").addClass("valid");
         }
@@ -137,6 +147,6 @@ window.onload = function () {
         }
     });
     $("#go-back").click(function () {
-        window.location.href = "/";
+        window.location.href = "/signout";
     });
 };

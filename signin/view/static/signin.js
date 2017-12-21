@@ -13,6 +13,9 @@ function passwordCheck(pass) {
 window.onload = function () {
     $("#reset").click(function () {
         $("[type=text]").val("");
+        $("[type=password]").val("");
+        $(".checker").text("");
+        $("#msg").text("");
     });
     $("#submit").click(function () {
         let name = $("[name=username]").val();
@@ -48,4 +51,7 @@ window.onload = function () {
             $("#password-checker").text("密码输入有误").removeClass("valid").addClass("invalid");
         }
     });
+    $("#signup").click(function () {
+        window.location.href = '/regist';
+    })
 };

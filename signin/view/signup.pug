@@ -14,23 +14,26 @@ html(lang='en')
                 p
                     label 用户名:
                     input(name='username', type='text', placeholder='用户名')
-                p#username-checker.checker
+                p#username-checker.checker.valid
                 p
                     label 学号:
                     input(name='number', type='text', placeholder='学号')
-                p#number-checker.checker
+                p#number-checker.checker.valid
                 p
                     label 密码:
                     input(name='password', type='password', placeholder='密码')
-                p#password-checker.checker
+                p
+                    label 确认:
+                    input(name='password-sec', type='password', placeholder='再次输入密码')
+                p#password-checker.checker.valid
                 p
                     label 电话:
                     input(name='phone', type='text', placeholder='电话')
-                p#phone-checker.checker
+                p#phone-checker.checker.valid
                 p
                     label 邮箱:
                     input(name='mail', type='text', placeholder='邮箱')
-                p#email-checker.checker
-            input#submit(type='submit')
-            button#reset 重置
-            p#msg
+                p#email-checker.checker.valid
+            input#submit.button(type='submit', value='注册')
+            button#reset.button 重置
+            p#msg.invalid #{message}

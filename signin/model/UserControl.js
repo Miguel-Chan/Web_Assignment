@@ -1,82 +1,41 @@
 const fs = require('fs');
-let userList = {};
+const database = require('./DatabaseControl');
 
-function User(name, number, pass, tele, email) {
+function User(name, number, passHash, tele, email) {
     this.username = name;
     this.number = number;
     this.telephone = tele;
-    this.password = pass;
+    this.password_hash = passHash;
     this.email = email;
 }
 
-function getUserList() {
-    try {
-        userList = JSON.parse(fs.readFileSync("userList.json"));
-    }
-    catch (err) {
-        fs.writeFileSync("userList.json", JSON.stringify(userList));
-        console.log("获得本地用户信息时出错，重新创建文件");
-    }
-}
-
-function fileSave() {
-    let data = JSON.stringify(userList);
-    fs.writeFile("userList.json", data, function (err) {
-        if (err) console.log(err);
-        else console.log("File saved");
-    })
-}
-
-function passwordCheck(pass) {
-    if (pass.length > 12 || pass.length < 6) return false;
-    let pat = /^[1-9a-zA-Z-_]{6,12}/;
-    return pat.test(pass);
-}
-
 function checkDuplicateFunc() {
-    return function (newUser) {
+    return async function (newUser) {
         let status = 1;
-        for (let symbol in userList) {
-            if (newUser.username && symbol === newUser.username) {
-                status *= 3;
-            }
-            if (newUser.number && userList[symbol].number === newUser.number) {
-                status *= 4;
-            }
-            if (newUser.telephone && userList[symbol].telephone === newUser.telephone) {
-                status *= 7;
-            }
-            if (newUser.email && userList[symbol].email === newUser.email) {
-                status *= 11;
-            }
-            if (newUser.password && !passwordCheck(newUser.password)) {
-                status *= 13;
-            }
-        }
+        status = await database.checkDuplicate(newUser);
         return status;
     }
 }
 
 function addUserFunc() {
-    return function (newUser) {
-        if (!userList[newUser.username]) {
-            userList[newUser.username] = newUser;
+    return async function (newUser) {
+        if (await database.checkDuplicate(newUser) === 1) {
+            database.addUser(newUser);
         }
-        fileSave();
     }
 }
 
 function getUserFunc() {
-    return function (username) {
-        if (userList[username]) {
-            return userList[username];
+    return async function (username) {
+        let user = await database.getUser(username);
+        if (user[0]) {
+            return user[0];
         }
         else return null;
     };
 }
 
 module.exports = function () {
-    getUserList();
     return function () {
         this.checkDuplicate = checkDuplicateFunc();
         this.User = User;
