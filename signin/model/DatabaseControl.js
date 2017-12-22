@@ -112,8 +112,8 @@ function sessionGetter() {
             let db = await MongoClient.connect(url);
             let base = db.db('signin');
             let res = await base.collection('SESSION').find({SESSIONID: sid}).toArray();
-            if (res.length === 0) return undefined;
             db.close();
+            if (res.length === 0) return undefined;
             return res[0].SESSION;
         }
         catch (err) {
