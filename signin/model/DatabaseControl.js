@@ -76,6 +76,7 @@ function duplicateChecker() {
                 let res = await base.collection('users').find({email: user.email}).toArray();
                 if (res.length !== 0) status *= 11;
             }
+            db.close();
             return status;
         }
         catch (err) {
@@ -95,6 +96,7 @@ function sessionAdder() {
             base.collection('SESSION').createIndex({'timer': 1}, {expireAfterSeconds: time});
             let data = {SESSIONID: sid, SESSION: session, timer: new Date()};
             let res = await base.collection('SESSION').insertOne(data);
+            db.close();
         }
         catch (err) {
             console.log(err);
@@ -111,6 +113,7 @@ function sessionGetter() {
             let base = db.db('signin');
             let res = await base.collection('SESSION').find({SESSIONID: sid}).toArray();
             if (res.length === 0) return undefined;
+            db.close();
             return res[0].SESSION;
         }
         catch (err) {
@@ -127,6 +130,7 @@ function sessionDestroyer() {
             let db = await MongoClient.connect(url);
             let base = db.db('signin');
             let res = await base.collection('SESSION').deleteMany({SESSIONID: sid});
+            db.close();
         }
         catch (err) {
             console.log(err);
