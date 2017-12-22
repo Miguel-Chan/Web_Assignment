@@ -5,7 +5,8 @@ const SessionStore = require('./SessionStore');
 function confSession() {
     return session({
         key: "SESSIONID",
-        store: new SessionStore()
+        store: new SessionStore(),
+        maxAge: 86400000
     })
 }
 
